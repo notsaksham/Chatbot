@@ -5,7 +5,8 @@ import Sidebar from './Components/Sidebar';
 import History from './Components/History';
 import {makeStyles} from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
-import InputQuestion from './Components/Input';
+//import InputQuestion from './Components/Input';
+import InputQuestion from './Components/NewInput';
 
 const useStyles = makeStyles({
   root: {
