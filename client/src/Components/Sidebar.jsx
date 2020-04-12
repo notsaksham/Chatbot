@@ -1,8 +1,8 @@
 import React from 'react';
+import Paper from '@material-ui/core/Paper';
 
-//An optional sidebar that shows some info
 const Sidebar = () => {
-  return <div>Sidebar </div>;
+  return <Paper>Sidebar</Paper>;
 };
 
 export default Sidebar;
