@@ -5,8 +5,7 @@ import Sidebar from './Components/Sidebar';
 import History from './Components/History';
 import {makeStyles} from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
-//import InputQuestion from './Components/Input';
-import InputQuestion from './Components/NewInput';
+import InputQuestion from './Components/Input';
 
 const useStyles = makeStyles({
   root: {
@@ -19,13 +18,17 @@ const useStyles = makeStyles({
 function App() {
   const styles = useStyles();
   return (
-    <Grid container className={styles.root}>
-      <Grid item xs={2}>
+    <Grid
+      container
+      className={styles.root}
+      justify="center"
+      alignItems="stretch">
+      <Grid item xs={3}>
         <Sidebar />
       </Grid>
       <Divider />
-      <Grid item xs={10}>
-        <Grid container>
+      <Grid item xs={9}>
+        <Grid justify="center" alignItems="stretch" direction="column">
           <History />
           <InputQuestion />
         </Grid>
