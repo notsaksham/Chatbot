@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import TextField from '@material-ui/core/TextField';
 import {Paper, Button, Grid, styled, makeStyles, Box} from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
@@ -29,6 +28,7 @@ class NewInput extends Component {
     super();
     this.state = {
       inputtext: '',
+      q_id:[]
     };
   }
 
@@ -38,10 +38,35 @@ class NewInput extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    const {inputtext} = this.state;
-
-    axios.post('/', {inputtext}).then((result) => {});
+    this.callfunc();
   };
+
+  callfunc = () =>{
+    let variable = this.state.inputtext.split(" "); 
+    let q_id = [];
+    for(let i=0;i<variable.length;i++){
+      let x = this.state.inputtext.split(" ")[i]
+      let y = {
+        word:x 
+      }
+      fetch("http://localhost:5000/",{
+        method:"POST",
+        headers: {
+          Accept: 'application/json','Content-Type': 'application/json',
+      },
+        body : JSON.stringify(y)
+      })
+      .then(response =>response.json())
+      .then(response =>{
+        //console.log(response.word)
+        q_id.push(response.word)
+      })
+      .catch(err =>{
+        console.log(err);
+      })
+    }
+    console.log(q_id)
+  }
 
   render() {
     const {inputtext} = this.state;
