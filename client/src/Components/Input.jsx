@@ -65,7 +65,24 @@ class NewInput extends Component {
         console.log(err);
       })
     }
-    console.log(q_id)
+    console.log(q_id);
+    
+    setTimeout(function(){
+      // console.log(q_id.length);
+      let str = "";
+      for (let i=0;i<q_id.length;i++){
+        let x =  String(q_id[i])
+        str = str.concat(x);
+        // console.log(str)
+      }
+      console.log(str);
+      var answer;
+      fetch(`http://localhost:5000/${str}`)
+        .then(response => response.json())
+        .then(response => {console.log(response)})
+        .catch(err => console.error(err)) 
+
+    }, 1000)
   }
 
   render() {

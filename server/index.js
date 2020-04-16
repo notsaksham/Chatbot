@@ -35,6 +35,17 @@ function myfun(Query1,q_id){
         });
 }
 
+app.get('/:str',function(req,res){
+    const mystr  = req.params.str;
+    const QUERY= "select * from questions where key_id = '"+mystr+"';"
+    connection.query(QUERY,(err,results)=>{
+        if(results.length===1){
+            console.log(results[0].question)
+            res.json({answer:results[0].question});
+        }
+    })
+})
+
 
 app.post("/",(req,res)=>{
     const word = req.body.word;
