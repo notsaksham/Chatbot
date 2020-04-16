@@ -47,8 +47,9 @@ DROP TABLE IF EXISTS `keywords`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `keywords` (
-  `key_id` int DEFAULT NULL,
-  `keyword` varchar(50) DEFAULT NULL
+  `key_id` int NOT NULL,
+  `keyword` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`key_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -58,7 +59,7 @@ CREATE TABLE `keywords` (
 
 LOCK TABLES `keywords` WRITE;
 /*!40000 ALTER TABLE `keywords` DISABLE KEYS */;
-INSERT INTO `keywords` VALUES (13,'cauliflower'),(7,'do'),(9,'grow'),(1,'hello'),(4,'how'),(17,'ladiesfinger'),(3,'ma'),(6,'nahhh'),(2,'okay'),(14,'onion'),(11,'potato'),(5,'really'),(18,'soil'),(12,'tomato'),(10,'when'),(16,'where'),(15,'which'),(8,'you');
+INSERT INTO `keywords` VALUES (1,'hello'),(2,'okay'),(3,'ma'),(4,'how'),(5,'really'),(6,'nahhh'),(7,'do'),(8,'you'),(9,'grow'),(10,'when'),(11,'potato'),(12,'tomato'),(13,'cauliflower'),(14,'onion'),(15,'which'),(16,'where'),(17,'ladiesfinger'),(18,'soil');
 /*!40000 ALTER TABLE `keywords` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -97,4 +98,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-16 21:07:33
+-- Dump completed on 2020-04-16 21:19:38
