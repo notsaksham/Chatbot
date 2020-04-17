@@ -67,7 +67,6 @@ class NewInput extends Component {
         // console.log(str)
       }
       console.log(str);
-      var answer;
       fetch(`http://localhost:5000/${str}`)
         .then((response) => response.json())
         .then((response) => {
