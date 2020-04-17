@@ -5,8 +5,12 @@ import {Box} from '@material-ui/core';
 
 const useStyles = makeStyles({
   paper: {
-    width: '100%',
-    height: '100%',
+    marginRight: '6px',
+    marginLeft: '6px',
+    marginBottom: '6px',
+    marginTop: '6px',
+    width: '99%',
+    height: '95%',
     background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
   },
 });
