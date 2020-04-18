@@ -63,22 +63,26 @@ class NewInput extends Component {
     }
     console.log(q_id);
 
-    setTimeout(function setMessage(message) {
-      // console.log(q_id.length);
-      let str = '';
-      for (let i = 0; i < q_id.length; i++) {
-        let x = String(q_id[i]);
-        str = str.concat(x);
-        // console.log(str)
-      }
-      console.log(str);
-      fetch(`http://localhost:5000/${str}`)
-        .then((response) => response.json())
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((err) => console.error(err));
-    }, 1000);
+    setTimeout(
+      function setMessage(message) {
+        // console.log(q_id.length);
+        let str = '';
+        for (let i = 0; i < q_id.length; i++) {
+          let x = String(q_id[i]);
+          str = str.concat(x);
+          // console.log(str)
+        }
+        console.log(str);
+        fetch(`http://localhost:5000/${str}`)
+          .then((response) => response.json())
+          .then((response) => {
+            messageReply = response.answer;
+          })
+          .catch((err) => console.error(err));
+        this.props.addBotMessage();
+      }.bind(this),
+      1000,
+    );
   };
 
   render() {
