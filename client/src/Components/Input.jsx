@@ -14,12 +14,14 @@ const MyPaper = styled(Paper)({
 });
 
 class NewInput extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       inputtext: '',
       q_id: [],
+      botReply: '',
     };
+    this.callfunc = this.callfunc.bind(this);
   }
 
   onChange = (e) => {
@@ -34,6 +36,9 @@ class NewInput extends Component {
   callfunc = () => {
     let variable = this.state.inputtext.split(' ');
     let q_id = [];
+
+    this.props.addUserMessage(this.state.inputtext);
+    //this.props.addBotMessage(this.state.inputtext);
     for (let i = 0; i < variable.length; i++) {
       let x = this.state.inputtext.split(' ')[i];
       let y = {
@@ -58,7 +63,7 @@ class NewInput extends Component {
     }
     console.log(q_id);
 
-    setTimeout(function() {
+    setTimeout(function setMessage(message) {
       // console.log(q_id.length);
       let str = '';
       for (let i = 0; i < q_id.length; i++) {
