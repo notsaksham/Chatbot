@@ -3,6 +3,7 @@ import './App.css';
 import Grid from '@material-ui/core/Grid';
 import History from './Components/History';
 import InputQuestion from './Components/Input';
+import SideBarFAB from './Components/FAB';
 
 class App extends Component {
   constructor() {
@@ -13,6 +14,7 @@ class App extends Component {
 
     this.addUserMessage = this.addUserMessage.bind(this);
     this.addBotMessage = this.addBotMessage.bind(this);
+    this.clearButtonClick = this.clearButtonClick.bind(this);
   }
 
   addUserMessage = (messageUser) => {
@@ -36,15 +38,23 @@ class App extends Component {
     }));
   };
 
+  clearButtonClick = () => {
+    this.setState((prevState) => ({
+      messages: [],
+    }));
+  };
   render() {
     return (
-      <Grid justify="center" alignItems="stretch" direction="column">
-        <History messages={this.state.messages} />
-        <InputQuestion
-          addUserMessage={this.addUserMessage}
-          addBotMessage={this.addBotMessage}
-        />
-      </Grid>
+      <React.Fragment>
+        <SideBarFAB clearing={this.clearButtonClick} />
+        <Grid justify="center" alignItems="stretch" direction="column">
+          <History messages={this.state.messages} />
+          <InputQuestion
+            addUserMessage={this.addUserMessage}
+            addBotMessage={this.addBotMessage}
+          />
+        </Grid>
+      </React.Fragment>
     );
   }
 }

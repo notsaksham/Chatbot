@@ -76,17 +76,15 @@ class NewInput extends Component {
         fetch(`http://localhost:5000/${str}`)
           .then((response) => response.json())
           .then((response) => {
-            messageReply = response.answer;
+            this.props.addBotMessage(response.answer);
           })
           .catch((err) => console.error(err));
-        this.props.addBotMessage();
       }.bind(this),
       1000,
     );
   };
 
   render() {
-    const {inputtext} = this.state;
     return (
       <form onSubmit={this.onSubmit}>
         <MyPaper>
@@ -98,12 +96,7 @@ class NewInput extends Component {
             width="95%"
             pt={2}
             display="inline">
-            <TextField
-              name="inputtext"
-              value={inputtext}
-              fullWidth
-              onChange={this.onChange}
-            />
+            <TextField name="inputtext" fullWidth onChange={this.onChange} />
           </Box>
           <Box m={1} p={2} height="100%" width="5%" pt={2} display="inline">
             <Button type="submit" color="primary">
